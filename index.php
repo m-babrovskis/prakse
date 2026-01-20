@@ -5,6 +5,6 @@
 </head>
 <body>
   <h1>Sveiki!</h1>
-  <p>Šī lapa strādā 🚀</p>
+  <p>Šī lapa strādā </p>
 </body>
 </html>
