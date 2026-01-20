@@ -1,0 +1,124 @@
+/*-------top-left-panel------------------*/
+.top-left-panel {
+    position: fixed;       /* vienmēr redzams */
+    top: 3.25vw;              /* vertikālais centrs */
+    left: 1vw;           /* attālums no labās malas */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;             /* attālums starp ikonām */
+    z-index: 9999;
+}
+
+/*-----------make-farms----------------*/
+.farmland {
+    position: absolute;
+    border-collapse: separate;  /* allows spacing */
+    border-spacing: 2px;        /* gap between cells */
+    background: transparent;    /* no background grid */
+}
+
+.farmland td {
+    height: 40px !important;
+    width: 40px !important;
+    
+    background-color: #2d963900; /* fallback color */
+    background-image: url('../textures/field/dirt1.png');
+    background-size: cover;
+    background-position: center;
+
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+.farmland td:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.farmland td:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;  /* top:0; left:0; right:0; bottom:0; */
+    background: rgba(120, 120, 120, 0.406); /* gray transparent */
+    pointer-events: none; /* click passes through */
+}
+
+/*-----------add-field-texutre----------------*/
+#fields{
+    width: 3569px;
+    height: 2624px;
+    
+    background-image: url('../textures/backgroundMap.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/*---------------side-button..-textures--------------------*/
+#infoBtn{
+    background-image: url('../textures/icons/info-icon.png');
+}
+
+#plowBtn{
+    background-image: url('../textures/icons/plow-icon.png');
+}
+
+#cultivatorBtn{
+    background-image: url('../textures/icons/cultivator-icon.png');
+}
+
+#fertilizerBtn{
+    background-image: url('../textures/icons/fertilizer-icon.png');
+}
+
+#seederBtn{
+    background-image: url('../textures/icons/seeder-icon.png');
+}
+
+/*---------field-pos-------*/
+.field1 {
+    left: 360px;
+    top: 150px;
+}
+
+.field2 {
+    left: 352px;
+    top: 600px;
+}
+
+.field3 {
+    left: 1235px;
+    top: 130px; 
+}
+
+.field4 {
+    left: 1870px;
+    top: 170px;
+}
+
+.field5 {
+    left: 1930px;
+    top: 735px;
+}
+
+.field6 {
+    left: 2830px;
+    top: 595px;
+}
+
+.field7 {
+    left: 270px;
+    top: 1750px;
+}
+
+.field8 {
+    left: 940px;
+    top: 1980px;
+}
+
+.field9 {
+    left: 1360px;
+    top: 2230px;
+}

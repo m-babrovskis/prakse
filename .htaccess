@@ -1,0 +1,37 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Novirzīt pieprasījumus uz index.php, ja fails vai mape neeksistē
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Paslēpt .php paplašinājumus (opcionāli)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Novērst direktoriju piekļuvi bez slīpsvītras
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ $1/ [R=301,L]
+
+# Drošība: bloķēt piekļuvi konfigurācijas failiem
+<FilesMatch "^(config|\.htaccess)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Drošība: bloķēt piekļuvi core failiem tieši
+RewriteRule ^core/ - [F,L]
+
+# Drošība: bloķēt piekļuvi config.php
+RewriteRule ^config\.php$ - [F,L]
+
+# Iestatīt UTF-8 kodējumu
+AddDefaultCharset UTF-8
+
+# Iespējot error reporting (izkomentēt produkcijā)
+# php_flag display_errors On
+# php_value error_reporting E_ALL
+

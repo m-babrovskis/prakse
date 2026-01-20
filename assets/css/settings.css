@@ -1,0 +1,18 @@
+#settingsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 80vh;
+    padding: 2vw;
+    background: rgba(35, 65, 40, 0.55);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    border: 1.5px solid rgba(200, 255, 200, 0.6);
+    box-shadow: 0 0 0.8vw rgba(140, 255, 160, 0.35), 0 12px 30px rgba(0,0,0,0.4);
+    color: #fff;
+    text-align: center;
+    z-index: 30000;
+    display: none;
+}

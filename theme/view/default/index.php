@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/energyP.css">
+    <link rel="stylesheet" href="/assets/css/rightPanel.css">
+ <link rel="stylesheet" href="/assets/css/gameTime.css">
+    <link rel="stylesheet" href="/assets/css/shop.css">
+    <link rel="stylesheet" href="/assets/css/inventory.css">
+    <link rel="stylesheet" href="/assets/css/topPanel.css">
+    <link rel="stylesheet" href="/assets/css/bottomPanel.css">
+    <link rel="stylesheet" href="/assets/css/playerInfo.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/settings.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+</head>
+    <body>
+        <div id="gameContainer">
+            <div id = "fields"></div>
+            <!-------RIGHT PANEL---------------->
+            <div id="Wlogs" class="Wlogs">
+                <p>magnifying glass</p>
+                <button id="closeLogs">Close</button>
+            </div>
+
+            <div class="map-container" id="map"></div>
+
+            <div class="side-panel" id="sidePanel">
+                
+                <div id="infoBtn" class="icon-box"></div>
+                <div id="plowBtn" class="icon-box"></div>
+                <div id="cultivatorBtn" class="icon-box"></div>
+                <div id="fertilizerBtn" class="icon-box"></div>
+                <div id="seederBtn" class="icon-box"></div>
+                
+            </div>
+            <!-------RIGHT PANEL BUTTON -> -------->
+                <div class="pannelCloseButton" id="sidePanelToggle">
+                    &#9654;
+                </div>
+             <div id="tooltip" class="tooltip"></div>  
+            <!---------------ENERGY-PANEL-------------------->
+            <div id="energy-panel">
+                <div id="energy-bar"></div>
+                <span id="energy-text">1000 / 1000</span>
+            </div>
+             <!-------------GROWN-COUNTER----------->
+            <div id="harvestCounter"> 0
+                
+            </div>
+            <div id="moneyBox">
+                $0
+            </div>
+             <!-------------SELL MODAL------------------>
+             <div id="sellModal">
+                <div class="modal-close" id="closeSellModal">✕</div>
+                <h3>Sell the harvest</h3>
+                <p>You have <span id="modalHarvestCount">0</span> units of harvest</p>
+                <label>
+                    How much to sell:
+                    <input type="number" id="sellAmount" min="1">
+                </label>
+                <button id="sellButton">Sell</button>
+               
+
+             </div>
+
+            <!----------top-left-panel------------->
+            <div class="top-left-panel">
+                <div id = "openShopButton" class="icon-top-left-box"></div>
+                <div id = "openInventoryButton" class="icon-top-left-box"></div>
+            </div>
+
+            <!----------top-center-panel------------->
+            <div class="top-center-panel">
+                <div id="playerInfo">
+                    <span id="playerId">ID: <?php echo $_SESSION['player_id'] ?? 'Guest'; ?></span>
+                    <button id="logoutButton">Logout</button>
+                </div>
+            </div>
+             <!---------GAME-TIME-PANEL----------->
+             <div id="gameTimePanel">
+           <span id="dayCounter">Day: 1</span>
+            <span id="energyCounter">Energy: 1000</span>
+            <button id="nextDayBtn">Next day</button>
+             </div>
+
+            <!----------bottom-left-settings------------->
+            <div id="settingsButton" class="settings-button"></div>
+
+            <div id="settingsModal">
+            </div>
+
+            <div id = inventoryModal class="inventoryBackground">
+                <div id = inventoryItemContainer class="inventoryBackground">
+                    <!-- 11 items-->
+                </div>
+
+                <div id = "equipmentContainer" class="inventoryBackground">
+                    <div id = "tractorSlot" class="itemCell" data-slot-type="4"></div>
+                    <div id = "plowSlot" class="itemCell" data-slot-type="2"></div>
+                    <div id = "cultivatorSlot" class="itemCell" data-slot-type="3"></div>
+                    <div id = "seedSlot" class="itemCell" data-slot-type="1"></div>
+                </div>
+
+                <div id="inventoryStats" class="inventoryBackground">
+                    <label>Stats</label>
+
+                    <table>
+                        <tr>
+                            <th>-</th>
+                            <th>stock</th>
+                            <th>with tractor</th>
+                        </tr>
+                        <tr>
+                            <td>PLOW</td>
+                            <td>[stats]</td>
+                            <td>[stats]</td>
+                        </tr>
+                        <tr>
+                            <td>CULTIVATOR</td>
+                            <td>[stats]</td>
+                            <td>[stats]</td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <th>-</th>
+                            <th>growth time</th>
+                            <th>yield</th>
+                            <th>sell price</th>
+                        </tr>
+                        <tr>
+                            <td>CARROT</td>
+                            <td>[stats]</td>
+                            <td>[stats]</td>
+                            <td>[stats]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!---------------NOTIFICATION--------------->
+        <div id="notification-container"></div>
+
+        <!----------shop-UI-------------------->
+        <div id = "shopContainerLoader"></div>
+
+        <!-- JavaScript Files -->
+         
+         <script src="/assets/js/app.js"></script>
+        <script src="/assets/js/fieldGenerator.js"></script>
+         <script src="/assets/js/EnergyPanel.js"></script>
+        
+        <script src="/assets/js/NotificationSystem.js"></script>
+         <script src="/assets/js/ui.js"></script>
+           <script src="/assets/js/field.js"></script>
+            <script src="/assets/js/harvest.js"></script>
+         <script src="/assets/js/money.js"></script>
+
+         <script src="/assets/js/shop.js"></script>
+         <script src="/assets/js/inventory.js"></script>
+         <script src="/assets/js/settings.js"></script>
+         <script src="/assets/js/keyboard-controls.js"></script>
+         <script src="/assets/js/topPanel.js"></script>
+         <script src="/assets/js/playerInfo.js"></script>
+          <script src="/assets/js/gameTime.js"></script>
+         
+    </body>
+</html>

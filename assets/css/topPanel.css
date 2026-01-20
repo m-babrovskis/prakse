@@ -1,0 +1,59 @@
+/*-------top-left-box------------------*/
+ .icon-top-left-box {
+    --icon-bg: url('../textures/icons/shop-icon.png');
+    --top-position: -2vw;
+    
+    position: fixed;
+    top: var(--top-position);
+    left: var(--left-position);
+    z-index: 15000;
+
+    width: 5.5vw;
+    height: 5.5vw;
+
+    border-radius: 12px;
+    border: 2px solid rgba(183,214,181,0.7);
+
+    background-image: linear-gradient(
+        145deg,
+        rgba(166,210,164,0.3),
+        rgba(84,169,84,0.2)
+    ),
+    var(--icon-bg);
+
+    background-size: cover !important;
+    background-position: center !important;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    
+}
+ .icon-top-left-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(255,255,255,0.35);
+    
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.15),
+        rgba(84,169,84,0.7)
+    ),
+    var(--icon-bg);
+}
+.icon-top-left-box.active {
+    transform: scale(1.12);
+    box-shadow: 0 10px 20px rgba(255,255,255,0.4);
+    border: 2px solid rgba(200,250,200,0.9);
+}
+
+#openShopButton{
+    --icon-bg: url('../textures/icons/shop-icon.png');
+    --left-position: 0.5vw;
+}
+
+#openInventoryButton{
+    --icon-bg: url('../textures/icons/inventory-icon.png');
+    --left-position: 7vw;
+    background-size: cover, 80% !important;
+    background-repeat: no-repeat !important;
+}

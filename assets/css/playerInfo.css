@@ -1,0 +1,36 @@
+/* ===== TOP CENTER PANEL ===== */
+.top-center-panel {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15000;
+}
+
+#playerInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(35, 65, 40, 0.8);
+    border-radius: 20px;
+    border: 1px solid rgba(200, 255, 200, 0.6);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#logoutButton {
+    padding: 4px 12px;
+    background: rgba(255, 100, 100, 0.8);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+#logoutButton:hover {
+    background: rgba(255, 100, 100, 1);
+}

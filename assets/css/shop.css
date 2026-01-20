@@ -1,0 +1,368 @@
+.shopContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    z-index: 10000;
+
+    /* Background image */
+    background-image: url('../textures/login/login-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.7);
+
+
+    .closeShopButton {
+        width: 7.5%;
+        height: 3%;
+
+        position: absolute;
+        top: 4%;
+        left: 2%;
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        z-index: 10001; /* Ensure it's above the shop UI */
+
+        background-image: url('../textures/Shop/exit-button.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    .shop-table {
+        position: absolute;       /* needed for bottom/left positioning */
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%);  /* center horizontally */
+
+        width: 928px;
+        height: 173px;
+        z-index: 1; /* background image is lower */
+
+        background-image: url('../textures/Shop/table.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        z-index: 10002; /* above shop UI content if needed */
+    }
+    .shop-title {
+        position: absolute;       /* needed for bottom/left positioning */
+        top: 3%;
+        left: 50%;
+        transform: translateX(-50%);  /* center horizontally */
+
+        width: 497px;
+        height: 86px;
+
+        background-image: url('../textures/Shop/title.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        z-index: 10002; /* above shop UI content if needed */
+    }
+
+
+    /*----------------------category-buttons----------------------------------*/
+    .category-board-container{
+        width: 1050px;
+        height: 350px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: flex; /* Use flexbox to align buttons horizontally */
+        justify-content: space-between; /* Space between buttons */
+        gap: 10px; /* Add space between buttons */
+        cursor: pointer;
+        z-index: 10001; /* Ensure it's above the shop UI */
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .category-board {
+        width: 228px;
+        height: 100%; /* Adjust height to fill the parent container */
+
+        top: 5px;
+        left: 5px;
+
+        background-image: url('../textures/Shop/category-board.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease; /* Smooth animation */
+        filter: brightness(1); /* Simple hover effect */
+        
+        /* Scale all content together */
+        transform-origin: center;
+        position: relative;
+    }
+
+    .category-board:hover,
+    .category-board.keyboard-selected {
+        filter: brightness(1.5); /* Simple hover effect */
+        transform: translateY(-10px) scale(1.05); /* Move up and scale on hover */
+    }
+
+    .category-image{
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #seedsCategory .category-image {
+        width: 99px;
+        height: 99px;
+        top: 7%;
+
+        background-image: url('../textures/icons/shop-icons/categories/seed.png');
+    }
+
+    #plowsCategory .category-image {
+        width: 108px;
+        height: 80px;
+        top: 10%;
+
+        background-image: url('../textures/icons/shop-icons/categories/plow.png');
+    }
+
+    #cultivatorsCategory .category-image {
+        width: 100px;
+        height: 82px;
+        top: 10%;
+
+        background-image: url('../textures/icons/shop-icons/categories/Cultivator.png');
+    }
+
+    #tractorsCategory .category-image {
+        width: 100px;
+        height: 82px;
+        top: 10%;
+
+        background-image: url('../textures/icons/shop-icons/categories/tractor.png');
+    }
+
+    .category-name {
+        position: absolute;
+        top: 40%; /* Center vertically */
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+        color: white;
+        font-weight: bold;
+        font-size: 200%;
+        text-align: center;
+        -webkit-text-stroke: 1px black;
+    }
+
+    .category-information {
+        position: absolute;
+        top: 48%; /* Center vertically */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 75%;
+        text-align: center;
+        width: 80%;
+    }
+
+    .browse-btn{
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 5%;
+
+        background-image: url('../textures/Shop/category-button.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        font-size: 150%;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease; /* Smooth animation */
+    }
+
+    .browse-btn:hover,
+    .category-board.keyboard-selected .browse-btn{
+        transform: translateX(-50%) scale(1.05); /* Scale up on hover */
+    }
+
+    .category-text{
+        position: absolute;
+        top: -30%; /* Center vertically */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        color: rgba(0, 0, 0, 0.47);
+        -webkit-text-stroke: .7px black;
+        font-size: 120%;
+        text-align: center;
+        width: 60%;
+    }
+    /*----------------------shop-table-container-------------------------------*/
+    .shop-table-container{
+        width: 1050.5px;
+        height: 521px;
+
+        position: absolute;
+        top: 47.5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999; /* very high number keeps it on top */
+
+        
+        display: none; /* Use flexbox to align buttons horizontally */
+        justify-content: space-between; /* Space between buttons */
+        gap: 10px; /* Add space between buttons */
+        cursor: pointer;
+        z-index: 10001; /* Ensure it's above the shop UI */
+
+        background-image: url('../textures/Shop/shop-board.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(.9);
+        
+    }
+
+    .shop-item-container {
+        width: 93.5%;
+        height: 500px;
+        position: absolute;
+        top: 57%;
+        left: 50.25%;
+        transform: translate(-50%, -50%);
+
+        display: flex;          /* horizontal layout */
+        flex-direction: row;
+        flex-wrap: nowrap;      /* do not wrap to next line */
+        gap: 2%;                /* spacing between items */
+
+        overflow-x: auto;       /* enable horizontal scrolling */
+        overflow-y: hidden;     /* disable vertical scrolling */
+        box-sizing: border-box;
+
+        -ms-overflow-style: none;  /* hide scrollbar in IE/Edge */
+        scrollbar-width: none;     /* hide scrollbar in Firefox */
+    }
+
+    .shopBox {
+        display: flex;
+        
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 2%;
+    }
+
+    .shop-item {
+        flex: 0 0 26%;          /* keep 25% width, do not shrink */
+        height: 84%;            /* your original height */
+
+        top: 10%;
+
+        background-image: url('../textures/Shop/category-board.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        filter: brightness(1.1);
+    }
+
+    .shop-item:hover {
+        filter: brightness(1.4); /* Simple hover effect */
+        transform: translateY(10px); /* Move up on hover */
+    }
+
+    .closeItems {
+        width: 165px;
+        height: 35px;
+
+        position: absolute;
+        top: -2%;
+        right: -2%;
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        z-index: 10001; /* Ensure it's above the shop UI */
+
+        background-image: url('../textures/Shop/item-close.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease; /* Smooth animation */
+
+    }
+
+    .closeItems:hover {
+        transform: scale(1.02); /* Scale up on hover */
+        filter: brightness(1.2);
+    }
+
+    .Buy-btn{
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 7.8%;
+
+        background-image: url('../textures/Shop/buy-button.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        font-size: 150%;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease; /* Smooth animation */
+
+    }
+
+    .Buy-btn:hover{
+        transform: translateX(-50%) scale(1.05); /* Scale up on hover */
+    }
+}
+
+

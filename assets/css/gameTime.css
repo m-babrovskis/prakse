@@ -1,0 +1,61 @@
+/* GAME TIME PANEL */
+#gameTimePanel {
+   position: fixed;
+    bottom: 1vw;   /* no apakšas */
+    right: 1vw;    /* no labās malas */
+    transform: none;  /* vairs nevajag centrēt */
+    
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+
+    background: rgba(35, 65, 40, 0.55);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1.5px solid rgba(180, 220, 180, 0.5);
+    padding: 0.7vw 1.2vw;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1vw;
+    z-index: 10005;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35), inset 0 0 6px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+#gameTimePanel span {
+    display: inline-block;
+    padding: 0.2vw 0.6vw;
+    border-radius: 6px;
+    background: rgba(40, 80, 40, 0.35);
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.1);
+}
+
+#gameTimePanel button {
+    padding: 0.3vw 0.8vw;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(145deg, rgba(40,100,40,0.9), rgba(70,150,70,0.8));
+    color: #fff;
+    transition: all 0.25s ease-in-out;
+}
+
+#gameTimePanel button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255,255,255,0.2);
+}
+
+/* OPTIONALLY: ANIMATION WHEN DAY CHANGES */
+#dayCounter.change {
+    animation: dayPop 0.5s ease forwards;
+}
+
+@keyframes dayPop {
+    0% { transform: scale(1); color: #fff; }
+    50% { transform: scale(1.3); color: #ffff66; }
+    100% { transform: scale(1); color: #fff; }
+}

@@ -1,0 +1,191 @@
+#energy-panel {
+    width: 24vw;
+    height: 2.8vw;
+
+    position: fixed;
+    top: 1vw;
+    right: 1vw;
+
+    background: rgba(30, 60, 35, 0.45);
+    backdrop-filter: blur(6px);
+
+    border-radius: 10px;
+    border: 1.5px solid rgba(180, 220, 180, 0.5);
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.35),
+        inset 0 0 6px rgba(255,255,255,0.15);
+
+    overflow: visible;
+    z-index: 9999;
+}
+
+#energy-bar {
+     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        135deg,
+        rgba(90, 190, 90, 0.95),
+        rgba(40, 120, 60, 0.9)
+    );
+
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.25),
+        0 0 12px rgba(120,255,120,0.35);
+
+    transition: width 0.35s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#energy-text {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1vw;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+
+    pointer-events: none;
+    z-index: 2;
+    white-space: nowrap;
+
+    background: rgba(0,0,0,0.25);
+    padding: 0.2vw 0.6vw;
+    border-radius: 6px;
+    backdrop-filter: blur(3px);
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+.blink {
+    animation: blink 0.7s infinite;
+    color: #ffdddd;
+    text-shadow:
+        0 0 6px rgba(255,80,80,0.8),
+        0 0 12px rgba(255,80,80,0.6);
+}
+#energy-bar.blink {
+    background: linear-gradient(
+        135deg,
+        rgba(220, 80, 80, 0.95),
+        rgba(140, 30, 30, 0.9)
+    );
+    box-shadow: 0 0 12px rgba(255,80,80,0.6);
+}
+#energy-text.low {
+     animation: blink 0.7s ;
+    color: #ffdddd;
+    text-shadow:
+        0 0 6px rgba(255,80,80,0.8),
+        0 0 12px rgba(255,80,80,0.6);
+}
+#energy-bar.low {
+    background: linear-gradient(
+        135deg,
+        rgba(220, 80, 80, 0.95),
+        rgba(140, 30, 30, 0.9)
+    );
+    box-shadow: 0 0 12px rgba(255,80,80,0.6);
+    animation: blink 0.7s ;
+
+}
+#energy-text.low.active, #energy-bar.low.active {
+    animation: blink 0.7s infinite;
+}
+/*-----NOTIFICATION------*/
+#notification-container {
+    position: fixed;
+    top: 5vw; /* zem enerģijas paneļa */
+    right: 1vw;
+    width: 22vw;
+    max-width: 300px;
+    z-index: 15000;
+}
+
+.notification {
+   width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+
+    color: #fff;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+
+    min-width: 260px;
+}
+
+/* tipi */
+.notification.info {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 0 12px rgba(52, 152, 219, 0.6),
+                0 6px 16px rgba(0,0,0,0.25);
+}
+
+.notification.warning {
+   background: linear-gradient(135deg, #f39c12, #e67e22);
+    box-shadow: 0 0 12px rgba(243, 156, 18, 0.6),
+                0 6px 16px rgba(0,0,0,0.25);
+
+}
+
+.notification.error {
+   background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 0 12px rgba(231, 76, 60, 0.6),
+                0 6px 16px rgba(0,0,0,0.25);
+}
+.notification.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease;
+}
+.notification.hide {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+}
+@keyframes energyBlink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.35; }
+    100% { opacity: 1; }
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+

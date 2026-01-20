@@ -1,0 +1,297 @@
+/* =======================
+   BODY & BACKGROUND
+   ======================= */
+body {
+    margin: 0;
+    background: #d1d1c0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.login-backgrounds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../textures/login/login-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* =======================
+   INPUTS
+   ======================= */
+.loginInput{
+    width: 470px;
+    height: 54px;
+
+    left: 50%;
+
+    position: absolute;
+    transform: translateX(-50%);
+
+    border: 0px;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+
+    color: rgb(150, 115, 82);
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 15px;
+    font-family: "Times New Roman", serif;
+    background-image: url('../textures/login/top-input.png');
+
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+
+.loginInput:hover {
+    outline: none;
+    border: 0;
+    transform-origin: center;
+}
+
+.loginInput:focus {
+    outline: none;
+    border: 0;
+    transform-origin: center;
+}
+
+.loginInput::placeholder {
+    color: rgba(150, 115, 82, 0.813);
+    font-weight: bold;
+}
+
+.logIn-container #usernameInput{
+    top: 36%;
+}
+
+.logIn-container #passwordInput{
+    top: 48%;
+}
+
+.signUp-container #usernameInput {
+    top:32%;
+}
+
+.signUp-container #emailInput {
+    top:44%;
+}
+
+.signUp-container #passwordInput {
+    top:56%;
+}
+
+/* =======================
+   PASSWORD REVEAL
+   ======================= */
+#passwordInput,
+.password-reveal {
+    transition: transform 0.2s ease;
+}
+
+.password-reveal:hover{
+    transform: translateY(-2px) scale(1.15);
+    transform-origin: center center;
+
+}
+
+.password-reveal {
+    z-index: 5;
+    width: 44px;
+    height: 35px;
+
+    position: absolute;
+    left: 77%;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url('../textures/login/eye-closed.png');
+    background-size: cover;
+    background-position: center;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.logIn-container .password-reveal {
+    top: 50%;
+}
+
+.signUp-container .password-reveal {
+    top: 58%;
+}
+
+/* SCALE EXACTLY THE SAME AS INPUT */
+#passwordInput:hover, #usernameInput:hover, #emailInput:hover {
+    transform: translateX(-50%) scale(1.01);
+}
+
+/* Hover: scale + move slightly right */
+#passwordInput:hover + .password-reveal {
+    transform: translateX(2px) scale(1.04);
+    transform-origin: center center;
+}
+
+
+#passwordInput:focus, #usernameInput:focus, #emailInput:focus {
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Focus: scale a bit more + move slightly right */
+#passwordInput:focus + .password-reveal {
+    transform: translateX(10px) scale(1.07);
+    transform-origin: center center;
+}
+
+/* =======================
+   WOOD BOARD / CONTAINERS
+   ======================= */
+.login-wood_board{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 685px;
+    height: 531px;
+
+    background-color: transparent;
+    background-image: url('../textures/login/login-wood_board.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-wood_board div {
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+
+/* =======================
+   BUTTONS
+   ======================= */
+.authButton{
+    width: 289px;
+    height: 89px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-size: cover;
+    background-position: center;
+
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+
+.authButton:hover {
+    transform: translateX(-50%) scale(1.05);
+    transform-origin: center;
+}
+
+#login-btn{
+    background-image: url('../textures/login/login-btn.png');
+    bottom: 23%;
+}
+
+#signup-btn{
+    background-image: url('../textures/login/signup-btn.png');
+    bottom: 15%;
+}
+
+.login-bottom{
+    bottom: -4.25%;
+
+    width: 144px;
+    height: 38px;
+
+    position: absolute;
+    transform: translateX(-50%);
+
+    border: 0px;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    transform-origin: top center;
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+
+.login-bottom:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+#login-bottom_left{
+    left: 27.5%;
+    background-image: url('../textures/login/left-button.png');
+}
+
+#login-bottom_middle{
+    left: 50%;
+    background-image: url('../textures/login/middle-button.png');
+}
+
+#login-bottom_right{
+    width: 140px;
+    height: 36px !important;
+    bottom: -4.1% !important;
+    left: 72.5%;
+    background-image: url('../textures/login/right-button.png');
+}
+
+/* =======================
+   OTHER ELEMENTS
+   ======================= */
+.signUp-container{
+    display: none;
+}
+
+.logIn-container{
+}
+
+.optionButtons{
+    background-size: cover;
+    background-position: center;
+}
+
+#newGameBtn{
+    left: 360px;
+    top: 150px;
+    width: 143px;
+    height: 40;
+    background-image: url('../textures/login/left-button.jpg');
+}
+
+.auth-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffffb3;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logIn-container .auth-label {
+    bottom: 19%;
+}
+
+.signUp-container .auth-label {
+    bottom: 11%;
+}
+
+.auth-label:hover {
+    color: #828282;
+    text-decoration: underline;
+    transform: translateX(-50%) scale(1.05);
+}
